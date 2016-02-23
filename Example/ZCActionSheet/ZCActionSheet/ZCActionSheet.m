@@ -9,8 +9,8 @@
 #import "ZCActionSheet.h"
 
 static NSString *const kSelectionCellName = @"kSelectionCellName";
-//static NSString *const kSelectionCellImageName = @"kSelectionCellImageName";
 static NSString *const kSelectionCellTagKey = @"kSelectionCellTagKey";
+static NSString *const kSelectionStyleKey = @"kSelectionStyleKey";
 static NSString *const kSelectionShouldDismissKey = @"kSelectionShouldDismissKey";
 
 #define kColorWithHex(hex) [UIColor colorWithRed:((hex>>16)&0xFF)/255.0f green:((hex>>8)&0xFF)/255.0f blue:(hex&0xFF)/255.0f alpha:1.0f]
@@ -37,10 +37,13 @@ static NSString *const kSelectionShouldDismissKey = @"kSelectionShouldDismissKey
     return self;
 }
 
-- (void)addItemWithLabelText:(NSString *)labelText shouldDismiss:(BOOL)shouldDismiss {
+- (void)addItemWithLabelText:(NSString *)labelText style:(ZCActionSheetItemStyle)style shouldDismiss:(BOOL)shouldDismiss {
     if ([labelText isKindOfClass:[NSString class]]) {
-        NSDictionary *itemDic = [NSDictionary dictionaryWithObjectsAndKeys:labelText, kSelectionCellName,
-                                 [NSNumber numberWithBool:shouldDismiss], kSelectionShouldDismissKey, nil];
+        NSDictionary *itemDic = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 labelText, kSelectionCellName,
+                                 [NSNumber numberWithInteger:style], kSelectionStyleKey,
+                                 [NSNumber numberWithBool:shouldDismiss], kSelectionShouldDismissKey,
+                                 nil];
         [self.itemsArray addObject:itemDic];
     }
 }
@@ -72,8 +75,9 @@ static NSString *const kSelectionShouldDismissKey = @"kSelectionShouldDismissKey
         UILabel *label = [[UILabel alloc] init];
         label.backgroundColor = [UIColor clearColor];
         label.font = [UIFont systemFontOfSize:18];
+        label.numberOfLines = 0;
         label.textAlignment = NSTextAlignmentCenter;
-        [label setTextColor:[UIColor colorWithRed:1.000 green:0.155 blue:0.276 alpha:1.000]];
+//        [label setTextColor:[UIColor colorWithRed:1.000 green:0.155 blue:0.276 alpha:1.000]];
         self.label = label;
         [self.contentView addSubview:label];
         
@@ -84,7 +88,7 @@ static NSString *const kSelectionShouldDismissKey = @"kSelectionShouldDismissKey
         
         // super class's selectedBackgroundView override
         UIView *selectedBackgroundView = [[UIView alloc] init];
-        selectedBackgroundView.backgroundColor = [UIColor whiteColor];
+        selectedBackgroundView.backgroundColor = kColorWithHex(0xd2d5d9);
         self.selectedBackgroundView = selectedBackgroundView;
         
         self.contentView.backgroundColor = [UIColor whiteColor];
@@ -113,6 +117,36 @@ static NSString *const kSelectionShouldDismissKey = @"kSelectionShouldDismissKey
     
     NSString *nameStr = infoDictionary[kSelectionCellName];
     self.label.text = [nameStr description];
+    
+    ZCActionSheetItemStyle style = [[self.infoDictionary objectForKey:kSelectionStyleKey] integerValue];
+    switch (style) {
+        case ZCActionSheetItemStyleDefault:
+            self.label.textColor = [UIColor blackColor];
+            break;
+        case ZCActionSheetItemStyleDestructive:
+            self.label.textColor = [UIColor redColor];
+            break;
+        case ZCActionSheetItemStyleDescription:
+            self.label.textColor = [UIColor lightGrayColor];
+            self.label.font = [UIFont systemFontOfSize:12];
+            break;
+        default:
+            break;
+    }
+}
+
+- (UIColor *)colorWithStyle:(ZCActionSheetItemStyle)style {
+    
+    switch (style) {
+        case ZCActionSheetItemStyleDefault:
+            return [UIColor blackColor];
+        case ZCActionSheetItemStyleDescription:
+            return [UIColor lightGrayColor];
+        case ZCActionSheetItemStyleDestructive:
+            return [UIColor redColor];
+        default:
+            break;
+    }
 }
 
 @end
@@ -343,10 +377,3 @@ static NSString *const kSelectionShouldDismissKey = @"kSelectionShouldDismissKey
 }
 
 @end
-
-
-
-
-
-
-

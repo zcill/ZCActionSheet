@@ -9,11 +9,16 @@
 #import <UIKit/UIKit.h>
 
 #define kZCActionSheetCellHeight 50
+typedef NS_ENUM(NSUInteger, ZCActionSheetItemStyle) {
+    ZCActionSheetItemStyleDefault = 0,
+    ZCActionSheetItemStyleDestructive,
+    ZCActionSheetItemStyleDescription,
+};
 
 @protocol ZCActionSheetItemsProtocol <NSObject>
 
 @required
-- (void)addItemWithLabelText:(NSString *)labelText shouldDismiss:(BOOL)shouldDismiss;
+- (void)addItemWithLabelText:(NSString *)labelText style:(ZCActionSheetItemStyle)style shouldDismiss:(BOOL)shouldDismiss;
 
 @end
 

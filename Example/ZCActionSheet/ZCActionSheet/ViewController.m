@@ -19,7 +19,8 @@
     
     [ZCActionSheet showWithItemBlock:^(id<ZCActionSheetItemsProtocol> items) {
         
-        [items addItemWithLabelText:@"退出登录" shouldDismiss:YES];
+        [items addItemWithLabelText:@"退出后不回删除任何历史数据，下次登录依然可以使用本帐号" style:ZCActionSheetItemStyleDescription shouldDismiss:YES];
+        [items addItemWithLabelText:@"退出登录" style:ZCActionSheetItemStyleDestructive shouldDismiss:YES];
         
     } selectedBlock:^(NSInteger indexPath) {
         NSLog(@"%ld", indexPath);
