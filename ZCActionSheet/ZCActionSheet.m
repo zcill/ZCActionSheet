@@ -9,12 +9,11 @@
 #import "ZCActionSheet.h"
 
 static NSString *const kSelectionCellName = @"kSelectionCellName";
-//static NSString *const kSelectionCellImageName = @"kSelectionCellImageName";
 static NSString *const kSelectionCellTagKey = @"kSelectionCellTagKey";
 static NSString *const kSelectionShouldDismissKey = @"kSelectionShouldDismissKey";
 
 #define kColorWithHex(hex) [UIColor colorWithRed:((hex>>16)&0xFF)/255.0f green:((hex>>8)&0xFF)/255.0f blue:(hex&0xFF)/255.0f alpha:1.0f]
-#define kColorWithRed(R, G, B) [UIColor colorWithRed:R/255.f green:G/255.f blue:B/255.f alpha:1]
+#define kColorWithRGB(R, G, B) [UIColor colorWithRed:R/255.f green:G/255.f blue:B/255.f alpha:1]
 
 #pragma mark - ZCActionSheetItems
 
@@ -40,7 +39,6 @@ static NSString *const kSelectionShouldDismissKey = @"kSelectionShouldDismissKey
 - (void)addItemWithLabelText:(NSString *)labelText shouldDismiss:(BOOL)shouldDismiss {
     if ([labelText isKindOfClass:[NSString class]]) {
         NSDictionary *itemDic = [NSDictionary dictionaryWithObjectsAndKeys:labelText, kSelectionCellName,
-//                                 imageName, kSelectionCellImageName,
                                  [NSNumber numberWithBool:shouldDismiss], kSelectionShouldDismissKey, nil];
         [self.itemsArray addObject:itemDic];
     }
@@ -57,7 +55,6 @@ static NSString *const kSelectionShouldDismissKey = @"kSelectionShouldDismissKey
 
 @interface ZCActionSheetCell : UITableViewCell
 
-//@property (nonatomic, strong) UIImageView *picImageView;
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) NSDictionary *infoDictionary;

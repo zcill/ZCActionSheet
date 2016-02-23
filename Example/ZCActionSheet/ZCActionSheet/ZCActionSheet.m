@@ -40,7 +40,6 @@ static NSString *const kSelectionShouldDismissKey = @"kSelectionShouldDismissKey
 - (void)addItemWithLabelText:(NSString *)labelText shouldDismiss:(BOOL)shouldDismiss {
     if ([labelText isKindOfClass:[NSString class]]) {
         NSDictionary *itemDic = [NSDictionary dictionaryWithObjectsAndKeys:labelText, kSelectionCellName,
-//                                 imageName, kSelectionCellImageName,
                                  [NSNumber numberWithBool:shouldDismiss], kSelectionShouldDismissKey, nil];
         [self.itemsArray addObject:itemDic];
     }
@@ -57,7 +56,6 @@ static NSString *const kSelectionShouldDismissKey = @"kSelectionShouldDismissKey
 
 @interface ZCActionSheetCell : UITableViewCell
 
-//@property (nonatomic, strong) UIImageView *picImageView;
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) NSDictionary *infoDictionary;
