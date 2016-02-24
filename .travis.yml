@@ -1,0 +1,4 @@
+language: Objective-C
+rvm:
+  - "0.0.1"
+  - rbx
