@@ -1,6 +1,8 @@
 # ZCActionSheet
 仿微信的一个向上弹出的选择框。因为效果很像`UIActionSheet`，姑且命名为`ZCActionSheet`吧。
 
+[![Build Status](https://travis-ci.org/zcill/ZCActionSheet.svg?branch=master)](https://travis-ci.org/zcill/ZCActionSheet)
+
 ![ZCActionSheetTest](https://github.com/zcill/ZCActionSheet/blob/master/ScreenShots%2FZCActionSheetTest.gif)
 ![ZCActionSheetShot](https://github.com/zcill/ZCActionSheet/blob/master/ScreenShots%2FZCActionSheetShot.png)
 

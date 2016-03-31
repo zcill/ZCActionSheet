@@ -53,7 +53,7 @@
 		4C5D688E1C7C4467007F31E6 /* ZCActionSheetUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCActionSheetUITests.m; sourceTree = "<group>"; };
 		4C5D68901C7C4467007F31E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C5D689C1C7C4791007F31E6 /* ZCActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCActionSheet.h; sourceTree = "<group>"; };
-		4C5D689D1C7C4791007F31E6 /* ZCActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCActionSheet.m; sourceTree = "<group>"; };
+		4C5D689D1C7C4791007F31E6 /* ZCActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCActionSheet.m; sourceTree = "<group>"; wrapsLines = 1; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -504,6 +504,7 @@
 				4C5D68951C7C4467007F31E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C5D68961C7C4467007F31E6 /* Build configuration list for PBXNativeTarget "ZCActionSheetTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +513,7 @@
 				4C5D68981C7C4467007F31E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C5D68991C7C4467007F31E6 /* Build configuration list for PBXNativeTarget "ZCActionSheetUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +522,7 @@
 				4C5D689B1C7C4467007F31E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
