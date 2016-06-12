@@ -37,7 +37,10 @@ static NSString *const kSelectionShouldDismissKey = @"kSelectionShouldDismissKey
     return self;
 }
 
-- (void)addItemWithLabelText:(NSString *)labelText style:(ZCActionSheetItemStyle)style shouldDismiss:(BOOL)shouldDismiss {
+- (void)addItemWithLabelText:(NSString *)labelText
+                       style:(ZCActionSheetItemStyle)style
+               shouldDismiss:(BOOL)shouldDismiss {
+    
     if ([labelText isKindOfClass:[NSString class]]) {
         NSDictionary *itemDic = [NSDictionary dictionaryWithObjectsAndKeys:
                                  labelText, kSelectionCellName,
@@ -129,6 +132,7 @@ static NSString *const kSelectionShouldDismissKey = @"kSelectionShouldDismissKey
         case ZCActionSheetItemStyleDescription:
             self.label.textColor = [UIColor lightGrayColor];
             self.label.font = [UIFont systemFontOfSize:12];
+            self.userInteractionEnabled = NO;
             break;
         default:
             break;

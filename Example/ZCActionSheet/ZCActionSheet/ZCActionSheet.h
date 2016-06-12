@@ -18,6 +18,13 @@ typedef NS_ENUM(NSUInteger, ZCActionSheetItemStyle) {
 @protocol ZCActionSheetItemsProtocol <NSObject>
 
 @required
+/**
+ *  添加一个按钮
+ *
+ *  @param labelText     按钮的文字
+ *  @param style         
+ *  @param shouldDismiss <#shouldDismiss description#>
+ */
 - (void)addItemWithLabelText:(NSString *)labelText style:(ZCActionSheetItemStyle)style shouldDismiss:(BOOL)shouldDismiss;
 
 @end
